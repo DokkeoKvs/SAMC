@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     "rest_framework",
     # "corsheaders",
     # "SAMCSYS.apps.SamcsysConfig"
-    "SAMCSYS"
+    "SAMCSYS",
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
@@ -82,19 +82,89 @@ WSGI_APPLICATION = "SAMCApp.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         # "ENGINE": "django.db.backends.sqlite3",
+#         #  "NAME": BASE_DIR / "db.sqlite3",
+        
+#         # ********* connction to Postgresql database ******
+#         # "ENGINE": "django.db.backends.postgresql",
+#         # "NAME": "SAMCDB",
+#         # "USER": "postgres",
+#         # "PASSWORD": "admin",
+#         # "HOST": "192.168.10.35",
+#         # "PORT": "5432",
+        
+            
+#         # ********* connction to SQL Server database ******
+       
+#         # "ENGINE": "sql_server.pyodbc",
+#         # "NAME": "SAMC_DB",
+#         # "USER": "sa",
+#         # "PASSWORD": "mess!Q@083@@",
+#         # "HOST": "192.168.10.35", 
+#         # "PORT": "1433",
+#         # "OPTIONS": {
+#         #     "driver": "ODBC Driver 18 for SQL Server",  
+#         #     "unicode_results": True,
+        
+#         # "DRIVER={ODBC Driver 18 for SQL Server};"
+#         # 'ENGINE': 'mssql',
+#         # 'NAME': 'SAMC_DB',
+#         # 'USER': 'sa',
+#         # 'PASSWORD': 'mess!Q@083@@',
+#         # 'HOST': '192.168.10.35',
+#         # 'PORT': '1433',
+        
+#         # 'OPTIONS': {
+#         #     'driver': 'ODBC Driver 18 for SQL Server',
+#         #     # "unicode_results": True,
+#         #     # "TrustServerCertificate": True,  # ເພີ່ມຄ່ານີ້ເພື່ອຂ້າມການກວດສອບ SSL
+#         #     # "encrypt": True,
+       
+#         # 'ENGINE': 'mssql',
+#         # 'NAME': 'SAMC_DB',
+#         # 'USER': 'sa',
+#         # 'PASSWORD': 'mess!Q@083@@',
+#         # 'HOST': '192.168.10.35',
+#         # 'PORT': '1433',
+#         # 'OPTIONS': {
+#         #     'driver': 'ODBC Driver 18 for SQL Server',
+#         #  },
+        
+        
+#     }
+# }
+
+# DATABASES = {
+#     'default': {
+#         # ********* connction to Postgresql database ******
+#         "ENGINE": "django.db.backends.postgresql",
+#         "NAME": "SAMCDB",
+#         "USER": "postgres",
+#         "PASSWORD": "admin",
+#         "HOST": "192.168.10.35",
+#         "PORT": "5432",
+      
+#     }
+# }
+
 DATABASES = {
     "default": {
-        # "ENGINE": "django.db.backends.sqlite3",
-        #  "NAME": BASE_DIR / "db.sqlite3",
-        "ENGINE": "django.db.backends.postgresql",
+        "ENGINE": "mssql",
         "NAME": "SAMCDB",
-        "USER": "postgres",
-        "PASSWORD": "admin",
+        "USER": "sa",
+        "PASSWORD": "mess!Q@083@@",
         "HOST": "192.168.10.35",
-        "PORT": "5432"
-    }
+        "PORT": "1433",
+        "OPTIONS": {
+            "driver": "ODBC Driver 17 for SQL Server",  # ປ່ຽນເປັນ Driver 17
+            # "unicode_results": True,
+            # "TrustServerCertificate": True,
+            # "Encrypt": True,
+        },
+    },
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -122,7 +192,7 @@ LANGUAGE_CODE = "en-us"
 
 TIME_ZONE = "UTC"
 
-USE_I18N = True
+USE_I18N = False
 
 USE_TZ = True
 
